@@ -4,7 +4,7 @@ IMERSÃO PROFISSIONAL: APLICANDO ORIENTAÇÃO A OBJETOS
 ANTONIO AUGUSTO DA FONSECA - 25046981-5
 */
 
-public class Professor extends Usuario {
+public class Professor extends Usuario implements Relatorio {
     private String especialidade;
     private String registro;
 
@@ -30,6 +30,15 @@ public class Professor extends Usuario {
 
     public void setRegistro(String registro) {
         this.registro = registro;
+    }
+
+    @Override
+    public String gerarRelatorio() {
+        return "RELATÓRIO DO PROFESSOR\n" +
+                "nome: " + getNome() + "\n" +
+                "login: " + getLogin() + "\n" +
+                "especialidade: " + especialidade + "\n" +
+                "registro: " + registro + "\n";
     }
 
     @Override

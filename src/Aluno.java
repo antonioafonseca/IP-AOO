@@ -4,7 +4,7 @@ IMERSÃO PROFISSIONAL: APLICANDO ORIENTAÇÃO A OBJETOS
 ANTONIO AUGUSTO DA FONSECA - 25046981-5
 */
 
-public class Aluno extends Usuario {
+public class Aluno extends Usuario implements Relatorio {
     private String matricula;
     private Curso curso;
 
@@ -34,6 +34,15 @@ public class Aluno extends Usuario {
 
     public void setCurso(Curso curso) {
         this.curso = curso;
+    }
+
+    @Override
+    public String gerarRelatorio() {
+        return "RELATÓRIO DO ALUNO\n" +
+                "nome: " + getNome() + "\n" +
+                "login: " + getLogin() + "\n" +
+                "matricula: " + matricula + "\n" +
+                "curso: " + (curso != null ? curso.getNome() : "null") + "\n";
     }
 
     @Override

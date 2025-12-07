@@ -4,7 +4,7 @@ IMERSÃO PROFISSIONAL: APLICANDO ORIENTAÇÃO A OBJETOS
 ANTONIO AUGUSTO DA FONSECA - 25046981-5
 */
 
-public class Curso {
+public class Curso implements Relatorio {
     private String nome;
     private String codigo;
     private int cargaHoraria;
@@ -47,6 +47,14 @@ public class Curso {
 
     public String detalharCurso() {
         return "nome: " + nome + "\n" +
+                "codigo: " + codigo + "\n" +
+                "cargaHoraria: " + cargaHoraria + "\n";
+    }
+
+    @Override
+    public String gerarRelatorio() {
+        return "RELATÓRIO DO CURSO\n" +
+                "nome: " + nome + "\n" +
                 "codigo: " + codigo + "\n" +
                 "cargaHoraria: " + cargaHoraria + "\n";
     }
