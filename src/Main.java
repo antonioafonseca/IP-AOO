@@ -7,21 +7,56 @@ ANTONIO AUGUSTO DA FONSECA - 25046981-5
 public class Main {
     public static void main(String[] args) {
         System.out.println("Desenvolvido por Antonio Augusto da Fonseca - 25046981-5");
-        Professor p = new Professor("Dra. Ana", "História", "REG5678");
-        Curso c = new Curso("História", "HIS201", 1200);
-        Turma t = new Turma("TURMA-01", p, c);
+        // Criando Curso
+        Curso cursoADS = new Curso("Análise e Desenvolvimento de Sistemas", "ADS01", 2000);
 
-        Aluno a1 = new Aluno("Carlos", "2025002", c);
-        Aluno a2 = new Aluno("Luiza", "2025003", c);
+        // Criando Alunos
+        Aluno aluno1 = new Aluno("João Silva", "2025001", cursoADS);
+        Aluno aluno2 = new Aluno("Maria Oliveira", "2025002", cursoADS);
+        Aluno aluno3 = new Aluno("José Pereira", "2025003", cursoADS);
 
-        System.out.println("Adicionando alunos:");
-        System.out.println("adicionar a1 -> " + t.adicionarAluno(a1));
-        System.out.println("adicionar a2 -> " + t.adicionarAluno(a2));
-        System.out.println("adicionar a1 novamente -> " + t.adicionarAluno(a1));
+        // Criando Professor
+        Professor professor = new Professor("Carlos Henrique", "Engenharia de Software", "PRF789");
 
-        t.resumo();
+        // Criando Turma
+        Turma turma = new Turma("ADS001", professor, cursoADS);
 
-        System.out.println("Remover aluno 2025002 -> " + t.removerAluno("2025002"));
-        t.resumo();
+        // Adicionando alunos
+        turma.adicionarAluno(aluno1);
+        turma.adicionarAluno(aluno2);
+        turma.adicionarAluno(aluno3);
+
+        // Criando avaliações
+        Avaliacao av1 = new Avaliacao("Prova 1");
+        av1.atribuirNota(8.5);
+
+        Avaliacao av2 = new Avaliacao("Trabalho 1");
+        av2.atribuirNota(9.0);
+
+        Avaliacao av3 = new Avaliacao("Prova 1");
+        av3.atribuirNota(7.0);
+
+        Avaliacao av4 = new Avaliacao("Trabalho 1");
+        av4.atribuirNota(8.5);
+        
+        Avaliacao av5 = new Avaliacao("Prova 1");
+        av5.atribuirNota(9.0);
+
+        Avaliacao av6 = new Avaliacao("Trabalho 1");
+        av6.atribuirNota(7.0);
+
+        // Associando avaliações à turma (Map<Aluno, List<Avaliacao>>)
+        turma.adicionarAvaliacaoParaAluno(aluno1, av1);
+        turma.adicionarAvaliacaoParaAluno(aluno1, av2);
+        turma.adicionarAvaliacaoParaAluno(aluno2, av3);
+        turma.adicionarAvaliacaoParaAluno(aluno2, av4);
+        turma.adicionarAvaliacaoParaAluno(aluno3, av5);
+        turma.adicionarAvaliacaoParaAluno(aluno3, av6);
+
+        // Remoção de aluno para validar o método existente na classe Turma
+        turma.removerAluno(aluno2);
+
+        // Impressão dos dados da turma
+        System.out.println(turma);
     }
 }
