@@ -4,6 +4,8 @@ IMERSÃO PROFISSIONAL: APLICANDO ORIENTAÇÃO A OBJETOS
 ANTONIO AUGUSTO DA FONSECA - 25046981-5
 */
 
+package model;
+
 public class Professor extends Usuario implements Relatorio {
     private String especialidade;
     private String registro;
