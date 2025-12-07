@@ -4,29 +4,20 @@ IMERSÃO PROFISSIONAL: APLICANDO ORIENTAÇÃO A OBJETOS
 ANTONIO AUGUSTO DA FONSECA - 25046981-5
 */
 
-public class Aluno {
-    private String nome;
+public class Aluno extends Usuario {
     private String matricula;
     private Curso curso;
 
-    public Aluno(String nome, String matricula, Curso curso) {
+    public Aluno(String nome, String login, String senha, String matricula, Curso curso) {
         if (nome == null || nome.isBlank())
             throw new IllegalArgumentException("nome inválido");
         if (matricula == null || matricula.isBlank())
             throw new IllegalArgumentException("matrícula inválida");
         if (curso == null)
             throw new IllegalArgumentException("curso inválido");
-        this.nome = nome;
+        super(nome, login, senha);
         this.matricula = matricula;
         this.curso = curso;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
     }
 
     public String getMatricula() {
@@ -47,7 +38,7 @@ public class Aluno {
 
     @Override
     public String toString() {
-        return "nome: " + nome + "\n" +
+        return super.toString() +
                 "matricula: " + matricula + "\n" +
                 "curso: " + (curso != null ? curso.getNome() : "null") + "\n";
     }
